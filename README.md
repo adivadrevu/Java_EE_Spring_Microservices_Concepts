@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Java EE Spring Microservices Concepts
 
 This repository contains various Java projects demonstrating different concepts and technologies. Below is a list of the projects included:
@@ -44,3 +45,7 @@ This repository contains various Java projects demonstrating different concepts 
 
 ## Configuration
 - **config.yml**: Configuration file for the projects.
+=======
+# Java_EE_Spring_Microservices_Concepts
+Java Concepts
+>>>>>>> 75777d7022c66d4f36d4b912cd802ca6bbe292f8
