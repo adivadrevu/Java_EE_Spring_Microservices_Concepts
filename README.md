@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Java EE Spring Microservices Concepts
 
 This repository contains various Java projects demonstrating different concepts and technologies. Below is a list of the projects included:
@@ -43,9 +43,9 @@ This repository contains various Java projects demonstrating different concepts 
 - **Springboot**: Examples of using Spring Boot.
 - **StreamsAPI**: Examples of using Java Streams API.
 
-## Configuration
-- **config.yml**: Configuration file for the projects.
-=======
-# Java_EE_Spring_Microservices_Concepts
-Java Concepts
->>>>>>> 75777d7022c66d4f36d4b912cd802ca6bbe292f8
+## Getting Started
+
+To get started with any of the projects in this repository, follow these steps:
+
+1. Clone the repository:
+   bash - git clone https://github.com/adivadrevu/Java_EE_Spring_Microservices_Concepts.git
