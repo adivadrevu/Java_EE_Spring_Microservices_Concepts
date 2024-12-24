@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jdbclearning</property>        
+        <property name="hibernate.connection.password">MySQL123#</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property> <!-- update will work only with existing table -->
+        <!--  if you say create, it will drop and create a new table so lets keep only update in this example -->
+        <!--  <property name="hibernate.hbm2ddl.auto">create</property>  --><!--  it will create a new table based on entity class -->
+        <property name="hibernate.show_sql">true</property> <!-- if you want to see the generated SQL query by hibernate in the console -->
+        <property name="hibernate.format_sql">true</property> <!-- Hibernate could you show the generated SQL query in the console in a proper format -->
+        <mapping class="com.learning.model.Student"/> 
+    </session-factory>
+</hibernate-configuration>

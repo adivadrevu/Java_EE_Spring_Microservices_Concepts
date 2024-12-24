@@ -1,0 +1,76 @@
+Starting and Installing Hibernate:
+
+Create a new Maven Project -> pom.xml file -> add the following code
+
+  <!-- Search google for Hibernate Maven dependencies -->
+  <!--- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core/6.3.1.Final -->
+  <dependencies>
+<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+	<dependency>
+    <groupId>org.hibernate.orm</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>6.3.1.Final</version>
+	</dependency>  	
+  </dependencies>
+
+
+Hibernate Project Setup / Architecture
+
+.java (Entity) -> Configuration file -> information about 1. Mapping, 2. Database -> follow steps
+
+1. Create configuration object
+2. Create Configuration file within Configuration Object
+3. Build Session factory (we will have all configuration objects)
+4. Open session()
+5. Get Session object from Session factory
+6. Perform all operations using Session object
+
+DB operation -> 'select' operation like data retrieval etc and 'non-select' operation like inserting data, updating data etc.
+
+Directly we cannot perform non-select operation using Session object -> we need Transaction object using beginTransaction() method to perform operations -> then commit() or rollback() operation -> then close() session
+
+
+Hibernate configuration file setup:
+right click src/main/resources -> new -> other -> XML -> first create an XML file -> if XML option is not there, open Eclipse Marketplace and install XML tools -> hibernate.config.xml -> finish (this is manual option to create config file content)
+
+To generate Hibernate config file automatically -> Then Help -> Eclipse Marketplace -> search "hibernate tools" look for JBoss tools -> install (uncheck all select only Hibernate Tools)
+right click src/main/resources -> new -> other -> Hibernate -> Hibernate Configuration File -> hibernate.cfg.xml (keep the name as it is) -> Database dilect (specify which database to work with) -> MySQL -> com.mysql.jdbc.Driver -> provide Connection URL later. Enter user and password: 
+
+Hit Finish -> click source tab
+
+Add connection.url manually
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jdbclearning</property>        
+        <property name="hibernate.connection.password">MySQL123#</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property> <!-- update will work only with existing table -->
+        <property name="hibernate.hbm2ddl.auto">create</property> <!--  it will create a new table based on entity class -->
+        <property name="hibernate.show_sql">true</property> <!-- if you want to see the generated SQL query by hibernate in the console -->
+        <property name="hibernate.format_sql">true</property> <!-- Hibernate could you show the generated SQL query in the console in a proper format -->
+        <mapping class="com.learning.model.Student"/> 
+    </session-factory>
+
+in case of MySQL exceptions, right-click FirstApplication.java -> dependencies -> Classpath Entries -> Add External JAR files -> mysql-connector-j-9.0.0 (otherwise download MySQL jar) -> 
+
+OR
+
+go to Maven repository and add it
+https://mvnrepository.com/artifact/mysql/mysql-connector-java
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+</dependency>
+
+you can check in Maven Dependencies -> my-sql-connector jar is added
+
+
+
+
+
+
+
+

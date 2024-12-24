@@ -1,0 +1,135 @@
+Spring Security
+
+it is about securing our APIs / resources / Application
+
+it is all about authentication and authorization. who can access which resource for how much time.
+
+Udemy course website
+level 3: all can access -> course list / fees etc
+level 2: you can access only courses you are enrolled only, for specified amount of time
+level 1: only Admin can add or modify courses
+
+OWASP : Open Web Application Security Project, which gives Top 10 trending web application security risks  
+
+the way you design software might lead to security risks
+
+something that was deprecated, functionality could be same but there might be other issues like security breach, possibility of security risks in deprecated annotations
+
+
+
+Default configuration models, filters (Session ID), CSRF, JWT (token based authentication), OAuth2
+
+Spring Security dependency creates a Login page by default
+
+whenever you visit any application, based on first request, in the server, one session ID is generated automatically. Same user from the same client can access any of the resources as long as session ID is valid. when Session ID expires, the login page shows up again. once you login successfully you get the Session ID
+
+client -> filter -> filter -> filter -> Servlet, Servlet will respond to Client. Filter-chaining -> requests go through multiple filters. Default Spring Security filters are there, like it is showing up the default login page. default behaviour of Spring Security is, it will secure all resources / APIs by default
+
+in Postman, you got to pick Basic Auth under Authorization, enter user and password
+
+instead of default user and password, we need user-defined name and password. for that we got to disturb the default settings
+
+Some hacker could use the same Session ID and use all resources. to overcome this problem, we have JWT and CSRF tokens
+
+if you have same-site restriction, then someone with the same Session ID and different-site wont be able to access the site
+
+next, JWT token, CSRF token, BCrypt algorithm to encrypt password
+
+RestAPI methods are binded to GET, POST, PUT, DELETE. 
+
+CSRF -> Cross Site Request Forgery, by default it is implemented
+
+whenever a client is making request to application -> first request creates SessionID and gets stored in the form of cookies. GET request is not much of a problem, but POST/DELETE will make changes on Server-side. with same sessionID, we can only do GET requests but not POST/DELETE/PUT requests due to CSRF. Everytime you visit application, CSRF token is generated and it cannot be given to anyone. Where to get CSRF token? HttpServletRequest request.getAttribute("_csrf"); we need to pass CSRF token along with sessionID for POST/DEL requests
+
+For POST request: add new Header: copy csrf token and send POST request
+
+Stateful vs Stateless:
+Stateful means it will remember client info at the server. the server will understand the same user is coming back
+Stateless means server will not remember client info. every request is considered as a new request
+
+if make my application Stateless, then sessionID or CSRF dont come into pic. so it much safer
+
+By default, it will get username and password from application.properties and will do authentication
+
+till now, we have learned the default security system of Spring framework. it is risky to use the default system so we got to give our own configuration
+
+we want to disturb default settings -> change to stateless, disable CSRF, multi-user authentication
+
+********************************************************
+
+next steps: few resources can be accessed by everyone, few resource accessed by only a few users
+
+then we got to understand JWT JSON Web Token. JTW generation, Token verification, then OAuth 
+
+The problem is, Password is stored as in plain text in the database, which is unacceptable. How to encrypt passwords? BCrypt algorithm. create instance of BCryptPasswordEncoder bcrypt = new BcryptPasswordEncoder(12); // 12 rounds of encoding
+
+some of the resources can be accessed by anyone, answer is Yes (say User signup API). http.authorizeHttpRequests()
+
+***********************************************
+
+OAuth2.0:
+say you want to visit a 3rd party application, based on the info from 3rd party API, we give access to users accordingly. you want to register using 3rd party API like Google, Facebook, etc. thats when we need OAuth2.0. Add dependency OAuth2 -> Client, Spring Web. In OAuth2 by default, we are getting Spring Security login page. the class we got to disturb is SecurityFilterChain. Go to Google console -> console.cloud.google.com -> create OAuth client ID -> Add URI -> copy Client ID, Client secret. Set oauth2.registration.google.client.id in application.properties, same for client secret. if you enter the API endpoint in browser then it will redirect to Google login page. if you want to signin with Github, then do the same thing. github.com/settings/application
+
+***************************************************
+
+JWT token based authentication -> JSON Web Token: Two steps: token generation and token verification
+
+All requests are Stateless that means all requests are treated like a new request
+
+This is something like buying an assigned subscription. for the first time, you visit the application, you got to pass-in login credentials, once verified the application returns 'signed pass' due to the trust. if the user is trustworthy, application generates the token for the user, next time the user visits, they dont need to provide login credentials again instead they got to present the token to use the application and to access resources.
+
+how to generate JWT token for the client? how to take-in the JWT token from the client and verify the token? the application will receive token back from client and extract information from that for authentication. third-party API: https://jwt.io/. add jwt library
+we got to create claims
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022
+}
+when you get the JWT, you got to go to Bearer Token and enter this token to access application resources. no need for username password any more.
+e
+how do we verify JWT?
+get the token, extract username, pass it into Spring method to verify same username in DB then authenticate
+
+**************************************************
+
+MultiDB config:
+
+SpringBoot App should get connected to multiple DBs like PostgresSQL, MySQL
+dependencies : Spring Web, JPA, Postgres driver, MySQL driver, dev tools
+we cannot configure two DBs in the same application.properties we need to write our own Config files
+SpringCloudConfiguration to separate yaml file from application for security purposes
+
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

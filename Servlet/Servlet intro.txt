@@ -1,0 +1,84 @@
+Servlet intro:
+
+Develop web applications with Java using technologies like Servlet, JSP and MVC architecture (a design pattern that will help us to organize code in a way it is easy to understand and maintain).
+
+MVC is a design pattern to develop web application
+
+Frontend knowledge is not mandatory to develop Java web applications
+
+
+
+Fundamentals of client-server architecture:
+
+How to develop a web application?
+	|
+Service on internet (Internet based application, it will work only if your device has the capability to connect to other devices)
+	|
+
+
+Can i access my server without internet?
+can you access a job application without internet? the answer is NO
+
+Social media app, Ecommerce app will work only if we have internet connectivity
+
+if you want your device to be called a 'client' machine, we should have one software -> browser software. from browser, we can seek service available in the internet
+
+if your system has a browser, then you can call your system as a 'client' computer, from where you can browse over the internet and seek some services
+
+Server machine is a machine from where service is served to all clients across the world. Once you develop application, you got to deploy it somewhere where everyone can access -> that machine we call as a 'Server computer'
+
+with the protocol called as http -> we send a http request from client machine to server machine. from client machine, if you want to access one of the applications where-ever the application is residing, that address you have to give: ip address (doorstep of the machine) then provide port number. in that server machine, there could be many applications running on different ports. so port number to reach the exact application, which is residing on the server machine.
+
+
+one device -> browser software -> we will seek for some service -> one more computer service will be provided to you. based on the http request, it will give back the response. if we access the server through internet then it is called as a 'Web server'
+
+client seeks service, server provides service
+
+
+we need to develop such an application we will be deploying onto the server -> from where our application will be served to the world through the concept of internet
+
+*********************************************
+Static response and Dynamic response:
+
+
+Web browser from client -> requests for some service from server computer. The web server responds back, sometimes client gets the static response sometimes dynamic response. To generate static response, we need only html and css (Static files).  Static response is constant response to all users requesting information. No change in response for all users. for the same response, we need only html and for good look and feel we might need css. no extra technology is required. Whereas for dynamic response, we need technology. Dynamic response means for every user the response is different or customized. Consider the case of a Registration form, "Hey User(Name) you have registered successfully!". Lets say when you try to register, all users get the same registration form (this is Static response) and once you click the register button and after successful registration, we get a custom message with our name. this response is called as 'Dynamic' response. After registering, say all 4 or 5 of you will get customized messages. This is a Dynamic response. To generate such Dynamic responses, we need to use some technology. if you are developing a Java application, we have a technology available with us using which we can generate a Dynamic response based on the request from client. To develop such applications to generate Dynamic responses, we need to use "Servlet" or "JSP". For a plain simple constant message to client, only HTML and CSS are sufficient. if we want to develop web application, we use Spring framework and the module "Spring MVC". Before Spring MVC, we may have to understand "Servlet" or "MVC" because behind the scene of Spring MVC, Servlet is being used. that's the reason we are going to learn Servlet here. To develop web application using Spring framework, we have one module called as "Spring MVC". 
+
+Introduction to Servlet:
+The needs for Servlet is to generate Dynamic responses to the client. Whenever client sends a request to server, we receive the request and send something Dynamic. Servlet is a simple Java program which is residing on the server computer, within that we will have a server software inside that we will a web container (Servlet container). Such a Java program with capability of handling http request and responding dynamically is called as a "Servlet". The web "Servlet" container will be inside the Server software and will do these things. The Servlet will be executed by the server software. So no "main()" method is required because JVM is not executing Servlet. Servlet is executed by Server software. For Servlet, we need to download and install the server software on our machines. Server software which we are going to use is "Apache Tomcat", which is free. 
+
+
+JSP: Java Server Pages
+HTML is very static displays only static content
+it cannot display any variables thats why we have JSP: extension of Servlet. that means, it is also a Server-side technology. it looks like HTML only but has additional capability. whatever view page you want to display to the client, that also you can do in JSP. whatever you can do in Servlet, same thing you can do in JSP also. it has capability of both Servlet and HTML. Additional features and more easy than Servlet to write program. Server-side technology with a capability of dynamic response to client. 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+	

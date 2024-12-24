@@ -1,0 +1,39 @@
+Springboot:
+
+How can you make Application asap?
+
+we focus more on convention than configuration
+
+IntelliJ -> SpringBoot -> Java -> select Maven -> dependencies
+
+this feature of creating SpringBoot is available only in Ultimate version
+
+Community version:
+
+takes to Spring initializr -> select Java, Maven, SpringBoot 3.3.5 (dependency Spring framework version 6, Spring 6 needs Java 17 min) etc -> Jar -> 21 -> add dependency
+
+in pom file, we need only two dependency -> spring starter, spring test
+
+just run the project -> we should see "Spring" printed
+
+Dependency injection without any configuration thats the good thing about Springboot
+
+
+SpringBoot = Spring + Auto-configuration
+
+SpringBoot automatically gives us application context or IOCContainer
+
+
+latest SpringBoot version is 3 -> internally they use Spring framework 6 -> minimum requirement is Java 17
+
+Only way is Spring Initializr (Spring tool suite, IntelliJ) -> start.io. in Eclipse, we can integrate STS
+
+Gradle is a competitor of Maven -> Maven is only for Java stack -> Gradle for Kotlin, Groovy, Java also, 
+
+3.2.12(Snapshot) means still in update stage. if start.spring.io is down then we cannot create Springboot project
+
+when you click Generate button -> the Springboot project will be downloaded -> Eclipse file -> Import
+
+
+
+
